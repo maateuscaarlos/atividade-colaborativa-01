@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<body>
+<ui:composition>
+    <h1>atividade-colaborativa-01</h1>
+    <h:form>
+        <ul>
+            <li><h:commandLink value="Criar/Editar Banda" action="#{redirecionarController.redirecionarPagina('faces/banda/edit.xhtml')}"/></li>
+            <li><h:commandLink value="Criar/Editar Integrante" action="#{redirecionarController.redirecionarPagina('faces/integrante/edit.xhtml')}"/></li>
+            <li><h:commandLink value="Listar Bandas" action="#{redirecionarController.redirecionarPagina('faces/banda/list.xhtml')}"/></li>
+            <li><h:commandLink value="Listar Integrantes" action="#{redirecionarController.redirecionarPagina('faces/integrante/list.xhtml')}"/></li>
+            <li><h:commandLink value="Integrante por CPF" action="#{redirecionarController.redirecionarPagina('faces/integrante/findByCpf.xhtml')}"/></li>
+            <li><h:commandLink value="Banda por LOCAL" action="#{redirecionarController.redirecionarPagina('faces/banda/findByLocal.xhtml')}"/></li>
+        </ul>
+    </h:form>
+</ui:composition>
+</body>
+</html>

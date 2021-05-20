@@ -1,0 +1,19 @@
+  
+version: '3'
+services:   
+  banco:
+    context: .
+    dockerfile: ./Dockerfile
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+ pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - 8080:80
+    links:
+      - postgre
+    depends_on:
+      - postgre

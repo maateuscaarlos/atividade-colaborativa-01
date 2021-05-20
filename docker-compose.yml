@@ -1,0 +1,19 @@
+version: '3'
+services:   
+  app:
+    container_name: app
+    image: dac/app
+    build: ./app
+    ports: 
+     - "8080:8080"
+    depends_on: 
+     - banco
+    links: 
+     - "banco:host-banco"
+  
+  banco:
+    container_name: banco
+    image: dac/banco
+    build: ./postgres
+    ports: 
+    - "5433:5432"

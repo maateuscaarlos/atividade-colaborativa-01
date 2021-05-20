@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                template="../template/layout.xhtml">
+    <ui:define name="content">
+        <h1>Buscar Por CPF</h1>
+        <h3>Primeiro aparece a lista de integrantes cadastrados, e depois quando pesquisa por um cpf, seleciona só aquele cpf.</h3>
+        <h:form>
+                <h:outputLabel for="cpf" value="CPF" />
+                <h:inputText name="query" value="${integranteController.buscarCpf}"
+                             id="cpf"/>
+            <button
+                    jsf:action="${integranteController.buscarPorCpf()}">
+                Buscar
+            </button>
+        </h:form>
+        <h:form>
+            <h:dataTable value="${integranteController.integrantes}" var="integrante">
+                <h:column>
+                    <f:facet name="header">Nome:</f:facet>
+                    ${integrante.nome}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CPF:</f:facet>
+                    ${integrante.cpf.formatado()}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

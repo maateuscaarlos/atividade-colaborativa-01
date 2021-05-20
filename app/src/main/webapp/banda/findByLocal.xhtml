@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                template="../template/layout.xhtml">
+    <ui:define name="content">
+        <h1 class="header center orange-text">Buscar por Local</h1>
+        <h3>Primeiro aparece a lista de bandas cadastradas, e depois quando pesquisa por um local, seleciona só aquele local.</h3>
+        <f:view>
+            <h:form>
+                <div class="input-field">
+                    <input name="query" type="text" required="true"
+                           jsf:id="query" jsf:value="${bandaController.localBanda}" />
+                    <label for="query">Digite para Buscar</label>
+                </div>
+
+                <button
+                        jsf:action="${bandaController.buscarBandaLocal()}">
+                    Buscar
+                </button>
+            </h:form>
+            <h:form>
+                <h:dataTable value="${bandaController.bandas}" var="banda">
+                    <h:column>
+                        <f:facet name="header">Nome Fantasia:</f:facet>
+                        ${banda.nomeFantasia}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Local De origem:</f:facet>
+                        ${banda.localDeOrigem}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../template/layout.xhtml">
+    <ui:define name="content">
+        <h1 class="header center orange-text">Cadastro de Integrante</h1>
+        <h:form>
+            <h:outputLabel for="nome" value="Nome" />
+            <h:inputText value="#{integranteController.integrante.nome}"
+                         id="nome"/>
+            <h:outputLabel for="dataDeNascimento" value="Data" />
+            <h:inputText value="#{integranteController.integrante.dataDeNascimento}"
+                         converter="converter.Date"
+                         id="dataDeNascimento"/>
+            <h:outputLabel for="cpf" value="CPF" />
+            <h:inputText value="#{integranteController.integrante.cpf}"
+                         converter="converter.cpf"
+                         id="cpf"/>
+            <h:message for="cpf" />
+            <h:commandButton id="comando" styleClass="btn" value="Salvar" action="#{integranteController.criarIntegrante()}"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
